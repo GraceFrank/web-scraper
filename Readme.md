@@ -11,7 +11,7 @@ Dockerize the app and push to a Git repo of your choice. (Tip: Use a cache to pr
 
 #Todo!
 Be able to read page Title
-Be able to read description
+Be able to read page description
 Be able to get all images on page
 Be able to get to find image size
 Be able to find biggest image

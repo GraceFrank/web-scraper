@@ -23,11 +23,16 @@ const scraper = url => {
             // get page title from the html head
             const pageTitle = $('title', 'head').text()
 
-            console.log('PageTitle', pageTitle);
+            const pageDescription = $("meta[name|='description'], meta[property|='og\\:description']").attr('content')
+
+            console.log('PageTitle', pageTitle,);
+            console.log('pageDescription', pageDescription, '\n\n');
         })
         .catch(console.error);
 }
 
 for (const url of urls)
     scraper(url);
+
+
 
