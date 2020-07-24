@@ -24,6 +24,12 @@ const scraper = async url => {
         .attr('content')
 
 
+    const largestImage = await page.evaluate(() => {
+        return [...document.getElementsByTagName('img')].sort((a, b) => b.clientWidth * b.clientHeight - a.clientWidth * a.clientHeight)[0].src;
+    });
+
+    console.log(largest_image)
+
 }
 
 for (const url of urls)
