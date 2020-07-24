@@ -21,6 +21,7 @@ const scraper = async url => {
             return [...document.getElementsByTagName('img')].sort((a, b) => b.clientWidth * b.clientHeight - a.clientWidth * a.clientHeight)[0].src;
         });
 
+        //todo: return any details found.
         return { pageTitle, pageDescription, largestImage }
 
     } catch (error) {
@@ -31,7 +32,7 @@ const scraper = async url => {
 }
 
 
-
+module.exports = scraper;
 
 //organisation
 //latest tech
