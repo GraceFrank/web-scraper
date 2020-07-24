@@ -1,8 +1,12 @@
 const fastify = require('fastify')({
     logger: true
 })
-const scrapper = require('./scrapper')
 const scraper = require('./scrapper')
+const config = require('./config')
+
+//todo! add validation middle ware
+//add url parser middleware
+//abstract method into its controller
 
 // Declare a route
 fastify.get('/', async (request, response) => {
@@ -14,12 +18,11 @@ fastify.get('/', async (request, response) => {
     return response.status(200).send({ error: false, data: pageDetails })
 })
 
-
-
-//Todo! change port to env variable
+//Read port from env variable or assign a default port
+const port = config.APP_PORT || 3000
 
 // Run the server!
-fastify.listen(3000, function (err, address) {
+fastify.listen(port, function (err, address) {
     if (err) {
         fastify.log.error(err)
         process.exit(1)
