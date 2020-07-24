@@ -3,32 +3,27 @@ const puppeteer = require('puppeteer');
 
 const urls = [
     'https://www.freecodecamp.org/news/the-ultimate-guide-to-web-scraping-with-node-js-daa2027dcd3/',
-    'https://www.reddit.com/r/news/',
-    'https://pusher.com/tutorials/web-scraper-node'
+    // 'https://www.reddit.com/r/news/',
+    // 'https://pusher.com/tutorials/web-scraper-node'
 
 ];
 
-const scraper = url => {
-    puppeteer
-        .launch()
-        .then(browser => browser.newPage())
-        .then(page => {
-            return page.goto(url).then(function () {
-                return page.content();
-            });
-        })
-        .then(html => {
-            const $ = cheerio.load(html);
+const scraper = async url => {
 
-            // get page title from the html head
-            const pageTitle = $('title', 'head').text()
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(url);
+    const html = await page.content()
+    const $ = cheerio.load(html);
 
-            const pageDescription = $("meta[name|='description'], meta[property|='og\\:description']").attr('content')
+    // get page title from the html head
+    const pageTitle = $('title', 'head').text()
 
-            console.log('PageTitle', pageTitle,);
-            console.log('pageDescription', pageDescription, '\n\n');
-        })
-        .catch(console.error);
+    //get page Description from metatag
+    const pageDescription = $("meta[name|='description'], meta[property|='og\\:description']")
+        .attr('content')
+
+
 }
 
 for (const url of urls)
@@ -36,3 +31,22 @@ for (const url of urls)
 
 
 
+// get all images on the page,
+//how to get image size
+//find the largest image
+//
+
+
+//organisation
+//latest tech
+//documentation
+//technical onboarding
+//am not afriad
+//learning
+//people and culture
+//people who have alighed with the company
+//appreciated for what am doing 
+//code review
+//being able to work with other
+
+//when i first joined  
