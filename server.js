@@ -1,22 +1,11 @@
 const fastify = require('fastify')({
     logger: true
 })
-const scraper = require('./scrapper')
+const pageDetailsController = require('./page-details-controller')
 const config = require('./config')
 
-//todo! add validation middle ware
-//add url parser middleware
-//abstract method into its controller
-
 // Declare a route
-fastify.get('/', async (request, response) => {
-    const url = request.query.url
-    const pageDetails = await scraper(url)
-    if (!pageDetails)
-        return response.status(400).send({ error: true, message: "could not get data for url" })
-
-    return response.status(200).send({ error: false, data: pageDetails })
-})
+fastify.get('/', pageDetailsController.get)
 
 //Read port from env variable or assign a default port
 const port = config.APP_PORT || 3000

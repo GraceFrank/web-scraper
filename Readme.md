@@ -9,6 +9,9 @@ http://get.meta/bbc.com/news/world-latin-america-53388656 (See metta.photo as an
 
 Dockerize the app and push to a Git repo of your choice. (Tip: Use a cache to prevent having to request the same URLs multiple times)
 
+To Start the application
+create a .env file from the sample.env provided in the app,
+
 #Todo!
 Be able to read page Title
 Be able to read page description
