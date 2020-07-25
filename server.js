@@ -8,7 +8,7 @@ const config = require('./config')
 fastify.get('/', pageDetailsController.get)
 
 //Read port from env variable or assign a default port
-const port = config.APP_PORT || 3000
+const port = config.API_PORT || 3000
 
 // Run the server!
 fastify.listen(port, function (err, address) {

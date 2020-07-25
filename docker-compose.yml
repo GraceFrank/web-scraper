@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web_api:
+    container_name: api
+    build: ./
+    command: npm  start
+    working_dir: /usr/src/app/
+
+    ports:
+      - 4000:4000
+    links:
+      - redis
+    volumes:
+      - ./:/usr/src/app/
+      - /usr/src/app/node_modules
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"

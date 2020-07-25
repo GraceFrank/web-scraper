@@ -3,7 +3,6 @@ const { redisClient } = require('./redis-connection')
 
 //todo! add validation middle ware
 //add url parser middleware
-//abstract method into its controller
 
 module.exports = {
     async get(request, response) {
