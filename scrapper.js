@@ -33,17 +33,3 @@ const scraper = async (url) => {
 };
 
 module.exports = scraper;
-
-//organisation
-//latest tech
-//documentation
-//technical onboarding
-//am not afriad
-//learning
-//people and culture
-//people who have alighed with the company
-//appreciated for what am doing
-//code review
-//being able to work with other
-
-//when i first joined
